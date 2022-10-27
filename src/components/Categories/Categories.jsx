@@ -4,8 +4,14 @@ const Categories = () => {
   return (
     <div className="categories">
       Categories:
-      <div>Series</div>
-      <div>Movies</div>
+      <div>
+        <input type="checkbox" id="series" name="series" value="series" />
+        <label htmlFor="series">Series</label>
+      </div>
+      <div>
+        <input type="checkbox" id="series" name="series" value="series" />
+        <label htmlFor="series">Series</label>
+      </div>
     </div>
   );
 };

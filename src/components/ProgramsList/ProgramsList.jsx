@@ -1,9 +1,9 @@
-import React from "react";
 import ProgramsItem from "../ProgramsItem/ProgramsItem";
+import "./ProgramsList.scss";
 
 const ProgramsList = () => {
   return (
-    <div>
+    <div className="programs-list">
       <ProgramsItem />
       <ProgramsItem />
       <ProgramsItem />

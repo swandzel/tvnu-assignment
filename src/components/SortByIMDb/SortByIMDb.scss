@@ -3,5 +3,25 @@
   justify-content: flex-end;
   align-items: flex-end;
   height: 150px;
-  text-decoration: underline;
+
+  &--content {
+    display: flex;
+    align-items: center;
+  }
+
+  &--title {
+    text-decoration: underline;
+  }
+
+  &--icons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    gap: 5px;
+
+    img {
+      height: 15px;
+      cursor: pointer;
+    }
+  }
 }
