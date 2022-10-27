@@ -1,7 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { GetPrograms } from "./api/api";
+import { useEffect } from "react";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await GetPrograms();
+      console.log(data);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -20,6 +29,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
