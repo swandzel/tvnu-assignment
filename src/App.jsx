@@ -7,22 +7,25 @@ import "./App.scss";
 
 const App = () => {
   const [programs, setPrograms] = useState(null);
+  const [query, setQuery] = useState({
+    series: true,
+    movie: true,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await GetPrograms();
+      const data = await GetPrograms(query);
       setPrograms(data);
-      console.log(data);
     };
     fetchData();
-  }, []);
+  }, [query]);
 
   return (
     <div className="app">
       <SortByIMDb />
       <div className="app--main">
-        <Categories />
-        <ProgramsList />
+        <Categories query={query} setQuery={setQuery} />
+        <ProgramsList programs={programs} />
       </div>
     </div>
   );

@@ -1,12 +1,19 @@
 import ProgramsItem from "../ProgramsItem/ProgramsItem";
 import "./ProgramsList.scss";
 
-const ProgramsList = () => {
+const ProgramsList = ({ programs }) => {
   return (
     <div className="programs-list">
-      <ProgramsItem />
-      <ProgramsItem />
-      <ProgramsItem />
+      {programs?.map((program) => (
+        <ProgramsItem
+          key={program.id}
+          title={program.title}
+          providers={program.playProviders}
+          genres={program.genres}
+          image={program.imageLandscape}
+          imdb={program.imdb}
+        />
+      ))}
     </div>
   );
 };

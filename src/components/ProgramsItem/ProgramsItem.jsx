@@ -1,18 +1,32 @@
 import "./ProgramsItem.scss";
 
-const ProgramsItem = () => {
+const ProgramsItem = ({ title, providers, genres, image, imdb }) => {
+  const splitedGenres = genres?.join(", ");
+  const splitedProviders = providers
+    .map((provider) => provider.name)
+    .join(", ");
+  const imageReSized = `${image}?width=300&height=200`;
+
   return (
     <section className="programs-item">
-      <div className="programs-item--image"></div>
+      <div className="programs-item--image">
+        <img src={imageReSized} alt={title} />
+      </div>
       <div className="programs-item--content">
-        <h2 className="programs-item--title">TITLE</h2>
-        <p className="programs-item--genres">THRILLER ACTION DRAMA</p>
-        <p className="programs-item--streaming">Streaming: Netflix HBO</p>
+        <h2 className="programs-item--title">{title}</h2>
+        <div className="programs-item--genres">{splitedGenres}</div>
+        {providers && splitedProviders && (
+          <p className="programs-item--streaming">
+            Streaming: {splitedProviders}
+          </p>
+        )}
       </div>
-      <div className="programs-item--imdb">
-        <span className="programs-item--imdb--score">7.8</span>
-        <span>IMDb</span>
-      </div>
+      {imdb && (
+        <div className="programs-item--imdb">
+          <span className="programs-item--imdb--score">{imdb.rating}</span>
+          <span>IMDb</span>
+        </div>
+      )}
     </section>
   );
 };
