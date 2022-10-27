@@ -12,21 +12,23 @@ const ProgramsItem = ({ title, providers, genres, image, imdb }) => {
       <div className="programs-item--image">
         <img src={imageReSized} alt={title} />
       </div>
-      <div className="programs-item--content">
-        <h2 className="programs-item--title">{title}</h2>
-        <div className="programs-item--genres">{splitedGenres}</div>
-        {providers && splitedProviders && (
-          <p className="programs-item--streaming">
-            Streaming: {splitedProviders}
-          </p>
+      <div className="programs-item--about">
+        <div className="programs-item--content">
+          <h2 className="programs-item--title">{title}</h2>
+          <div className="programs-item--genres">{splitedGenres}</div>
+          {providers && splitedProviders && (
+            <p className="programs-item--streaming">
+              Streaming: {splitedProviders}
+            </p>
+          )}
+        </div>
+        {imdb && (
+          <div className="programs-item--imdb">
+            <span className="programs-item--imdb--score">{imdb.rating}</span>
+            <span>IMDb</span>
+          </div>
         )}
       </div>
-      {imdb && (
-        <div className="programs-item--imdb">
-          <span className="programs-item--imdb--score">{imdb.rating}</span>
-          <span>IMDb</span>
-        </div>
-      )}
     </section>
   );
 };

@@ -3,10 +3,20 @@
   justify-content: flex-end;
   align-items: flex-end;
   height: 150px;
+  position: relative;
+
+  @media (max-width: 1000px) {
+    height: 50px;
+  }
 
   &--content {
     display: flex;
     align-items: center;
+
+    @media (max-width: 1000px) {
+      position: absolute;
+      bottom: -90px;
+    }
   }
 
   &--title {
@@ -16,7 +26,7 @@
   &--icons {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 15px;
     gap: 5px;
 
     img {

@@ -33,10 +33,12 @@ const App = () => {
 
   return (
     <div className="app">
-      <SortByIMDb sortAsc={sortAsc} sortDesc={sortDesc} />
-      <div className="app--main">
-        <Categories query={query} setQuery={setQuery} />
-        <ProgramsList programs={programs} />
+      <div className="app--content">
+        <SortByIMDb sortAsc={sortAsc} sortDesc={sortDesc} />
+        <div className="app--main">
+          <Categories query={query} setQuery={setQuery} />
+          <ProgramsList programs={programs} />
+        </div>
       </div>
     </div>
   );

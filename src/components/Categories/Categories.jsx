@@ -7,27 +7,29 @@ const Categories = ({ query, setQuery }) => {
 
   return (
     <div className="categories">
-      Categories:
-      <div>
-        <input
-          type="checkbox"
-          id="series"
-          name="series"
-          checked={query.series}
-          onChange={handleChange}
-        />
-        <label htmlFor="series">Series</label>
-      </div>
-      <div>
-        <input
-          type="checkbox"
-          id="movie"
-          name="movie"
-          checked={query.movie}
-          onChange={handleChange}
-        />
-        <label htmlFor="movie">Movie</label>
-      </div>
+      <div className="categories--title">Categories:</div>
+      <form>
+        <div className="categories--input">
+          <input
+            type="checkbox"
+            id="series"
+            name="series"
+            checked={query.series}
+            onChange={handleChange}
+          />
+          <label htmlFor="series">Series</label>
+        </div>
+        <div className="categories--input">
+          <input
+            type="checkbox"
+            id="movie"
+            name="movie"
+            checked={query.movie}
+            onChange={handleChange}
+          />
+          <label htmlFor="movie">Movie</label>
+        </div>
+      </form>
     </div>
   );
 };

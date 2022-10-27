@@ -1,13 +1,28 @@
 .app {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 1600px;
-  margin: auto;
+  min-width: 360px;
+
+  &--content {
+    width: 100%;
+    max-width: 1600px;
+
+    @media (max-width: 1600px) {
+      padding: 0 20px;
+    }
+  }
 
   &--main {
     display: flex;
     margin-top: 50px;
+    width: 100%;
+
+    @media (max-width: 1000px) {
+      flex-direction: column;
+    }
   }
 
   h2,
