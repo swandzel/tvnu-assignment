@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import SortByIMDb from "./components/SortByIMDb/SortByIMDb";
 import Categories from "./components/Categories/Categories";
 import ProgramsList from "./components/ProgramsList/ProgramsList";
+import Error from "./components/Error/Error";
 import "./App.scss";
 
 const App = () => {
@@ -12,10 +13,16 @@ const App = () => {
     series: true,
     movie: true,
   });
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await GetPrograms(query);
+
+      if (!data) {
+        setError(true);
+      }
+
       setPrograms(data);
     };
     fetchData();
@@ -37,7 +44,7 @@ const App = () => {
         <SortByIMDb sortAsc={sortAsc} sortDesc={sortDesc} />
         <div className="app--main">
           <Categories query={query} setQuery={setQuery} />
-          <ProgramsList programs={programs} />
+          {!error ? <ProgramsList programs={programs} /> : <Error />}
         </div>
       </div>
     </div>
