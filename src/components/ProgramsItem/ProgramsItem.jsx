@@ -3,19 +3,25 @@ import "./ProgramsItem.scss";
 const ProgramsItem = ({ title, providers, genres, image, imdb }) => {
   const splitedGenres = genres?.join(", ");
   const splitedProviders = providers
-    .map((provider) => provider.name)
+    ?.map((provider) => provider.name)
     .join(", ");
   const imageReSized = `${image}?width=300&height=200`;
 
   return (
     <section className="programs-item">
       <div className="programs-item--image">
-        <img src={imageReSized} alt={title} />
+        {imageReSized ? (
+          <img src={imageReSized} alt={title} />
+        ) : (
+          <div className="programs-item--image-fallback" />
+        )}
       </div>
       <div className="programs-item--about">
         <div className="programs-item--content">
           <h2 className="programs-item--title">{title}</h2>
-          <div className="programs-item--genres">{splitedGenres}</div>
+          {splitedGenres && (
+            <div className="programs-item--genres">{splitedGenres}</div>
+          )}
           {providers && splitedProviders && (
             <p className="programs-item--streaming">
               Streaming: {splitedProviders}

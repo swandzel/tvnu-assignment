@@ -4,7 +4,7 @@ import ArrowUp from "../../assets/arrow-up.svg";
 
 const SortByIMDb = ({ sortAsc, sortDesc }) => {
   return (
-    <div className="sort-by">
+    <header className="sort-by">
       <div className="sort-by--content">
         <div className="sort-by--title">SortByIMDb</div>
         <div className="sort-by--icons">
@@ -12,7 +12,7 @@ const SortByIMDb = ({ sortAsc, sortDesc }) => {
           <img src={ArrowDown} alt="Arrow Down" onClick={sortAsc} />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
