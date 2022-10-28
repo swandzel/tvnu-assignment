@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://stage-api-frontend.tv.nu/programs?orderBy=vieews";
+const BASE_URL = "https://stage-api-frontend.tv.nu/programs?orderBy=views";
 
 export const GetPrograms = async (query) => {
   const searchQuery = `&programType=${query.movie && "movie"},${
